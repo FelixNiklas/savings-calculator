@@ -1,0 +1,49 @@
+#savingsCalculator {
+  display: grid;
+  grid-template-rows: auto 1fr auto; // Top row, middle row, bottom row
+  grid-template-columns: 1fr 1fr 1fr; // Three columns
+  gap: 10px; // Gap between grid items
+
+  // Additional styles for responsiveness
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .topRow,
+  .bottomRow {
+    grid-column: 1 / 4; // Full width across three columns
+    background-color: lightgray;
+    padding: 20px;
+  }
+
+  .middleRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; // Three columns
+    gap: 10px; // Gap between grid items
+
+    .leftColumn,
+    .centerColumn,
+    .rightColumn {
+      background-color: lightblue;
+      padding: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    // Styles for mobile devices
+    grid-template-rows: auto auto auto; // Change to three equal rows
+    grid-template-columns: 1fr; // Single column
+
+    .topRow,
+    .bottomRow {
+      grid-column: 1; // Full width on a single column
+    }
+
+    .middleRow {
+      grid-template-columns: 1fr; // Single column
+
+      .rightColumn {
+        grid-row: 3; // Place the right column below the middle row
+      }
+    }
+  }
+}
